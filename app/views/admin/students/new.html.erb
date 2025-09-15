@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <h1 class="mb-4"><%= @master_account.email %> の新規学生登録</h1>
+
+  <%= form_with(model: [:admin, @master_account, @student], local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :last_name, "姓", class: "form-label" %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :first_name, "名", class: "form-label" %>
+      <%= form.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :last_name_kana, "姓（カナ）", class: "form-label" %>
+      <%= form.text_field :last_name_kana, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :first_name_kana, "名（カナ）", class: "form-label" %>
+      <%= form.text_field :first_name_kana, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :rank_id, "級位", class: "form-label" %>
+      <%= form.select :rank_id, options_from_collection_for_select(@kente_ranks, :id, :rank), { prompt: "級位を選択してください" }, class: "form-control" %>
+    </div>
+
+    <div class="form-check mb-3">
+      <%= form.check_box :is_active, class: "form-check-input", id: "student_is_active" %>
+      <%= form.label :is_active, "有効フラグ", class: "form-check-label" %>
+    </div>
+
+    <%= form.submit "登録", class: "btn btn-primary" %>
+    <%= link_to '戻る', admin_master_account_path(@master_account), class: "btn btn-secondary ms-2" %>
+  <% end %>
+</div>

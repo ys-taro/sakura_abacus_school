@@ -1,0 +1,22 @@
+<%= link_to "新規作成", new_admin_information_path %>
+<div class="container my-4">
+  <h1 class="mb-4">お知らせ一覧</h1>
+  <div class="row">
+    <% @informations.each do |information| %>
+      <div class="col-12 mb-4">
+        <%= link_to admin_information_path(information), class: "text-decoration-none text-reset" do %>
+          <div class="card h-100">
+            <% if information.image.attached? %>
+              <%= image_tag information.image.variant(resize_to_limit: [400, 200]), class: "card-img-top", alt: "お知らせ画像" %>
+            <% end %>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><%= information.title %></h5>
+              <p class="card-text"><%= truncate(information.content, length: 100, omission: "…") %></p>
+              <p class="card-text mt-auto"><small class="text-muted"><%= information.created_at.strftime("%Y年%m月%d日") %></small></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h2 class="text-center my-4">管理者ログイン</h2>
+
+<%= form_with model: @admin, url: session_path(resource_name), local: true, html: {class: "card p-4 shadow", style: "max-width:400px; margin:auto;"} do |f| %>
+  <div class="mb-3">
+    <%= f.label "メールアドレス", class: "form-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label "パスワード", class: "form-label" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+  </div>
+
+  <div class="d-grid">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="text-center mt-3">
+  <%= link_to "新規登録はこちら", new_admin_registration_path, class: "btn btn-link" %>
+</div>

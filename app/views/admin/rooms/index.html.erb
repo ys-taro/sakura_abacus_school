@@ -1,0 +1,10 @@
+<div class="container my-4">
+  <h1 class="mb-4">メッセージ一覧</h1>
+  <div class="list-group">
+    <% @rooms.each do |room| %>
+      <%= link_to admin_room_path(room.student), class: "list-group-item list-group-item-action" do %>
+        <%= room.student.last_name %> <%= room.student.first_name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

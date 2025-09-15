@@ -1,0 +1,23 @@
+<script>
+  window.currentUser = {
+    type: "<%= @current_account.class.name %>"
+  }
+  console.log(window.currentUser);
+</script>
+<div class="container my-4">
+  <h1 class="mb-4"><%= @student.last_name + " " + @student.first_name %></h1>
+
+  <div id="messages" class="list-group mb-3" style="max-height: 400px; overflow-y: auto;">
+    <%= render partial: 'messages/message', collection: @messages %>
+  </div>
+
+  <form id="new_message" class="d-flex">
+    <textarea id="message_content" class="form-control me-2" rows="3" placeholder="メッセージを入力してください..." style="resize: none;"></textarea>
+
+    <input type="hidden" id="room_id" value="<%= @room.id %>">
+    <input type="hidden" id="sender_type" value="<%= current_admin.class.name %>">
+    <input type="hidden" id="sender_id" value="<%= current_admin.id %>">
+
+    <button type="submit" class="btn btn-primary">送信</button>
+  </form>
+</div>

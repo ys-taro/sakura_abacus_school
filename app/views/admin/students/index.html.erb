@@ -1,0 +1,10 @@
+<div class="container my-4">
+  <h1 class="mb-4">塾生一覧</h1>
+  <div class="list-group">
+    <% @students.each do |student| %>
+      <%= link_to admin_student_path(student), class: "list-group-item list-group-item-action" do %>
+        <%= student.last_name %> <%= student.first_name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

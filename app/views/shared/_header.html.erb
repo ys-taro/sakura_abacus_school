@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <div class="container">
+    <%= link_to "さくらそろばん教室", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">     
+        <% if master_account_signed_in? %>
+          <li class="nav-item">
+            <%= link_to informations_path, class: 'nav-link text-light' do %>
+              <span>お知らせ</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to students_path, class: 'nav-link text-light' do %>
+              <span>塾生情報・成績閲覧・メッセージ</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_master_account_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <span>ログアウト</span>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_master_account_session_path, class: 'nav-link text-light' do %>
+              <span>ログイン</span>
+            <% end %>
+          </li>
+        <% end%>
+      </ul>
+    </div>
+  </div>
+</nav>

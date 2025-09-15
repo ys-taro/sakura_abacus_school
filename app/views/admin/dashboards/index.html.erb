@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h1 class="mb-4">成績入力</h1>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <h3>さくらプリント</h3>
+      <div class="d-flex">
+        <%= link_to "新規", new_admin_sakura_print_path, class: "btn btn-success mr-3" %>
+        <%= link_to "一覧", admin_sakura_prints_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h3>検定試験</h3>
+      <div class="d-flex">
+        <%= link_to "新規", new_admin_kente_path, class: "btn btn-success mr-3" %>
+        <%= link_to "一覧", admin_kentes_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

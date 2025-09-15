@@ -1,0 +1,2 @@
+module KentesHelper
+end

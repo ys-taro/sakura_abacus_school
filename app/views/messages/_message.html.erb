@@ -1,0 +1,8 @@
+<div class="d-flex mb-2 <%= message.sender_type == @current_account.class.name ? 'justify-content-end' : 'justify-content-start' %>" data-sender-type="<%= message.sender_type %>">
+  <div class="message p-2 rounded <%= message.sender_type == @current_account.class.name ? 'bg-primary text-white' : 'bg-light text-dark' %>" style="max-width: 70%;">
+    <%= message.content %>
+    <small class="d-block text-end text-muted mt-1" style="font-size: 0.75rem;">
+    <%= message.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d %H:%M') %>
+    </small>
+  </div>
+</div>

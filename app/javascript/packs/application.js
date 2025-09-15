@@ -8,6 +8,25 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "jquery";
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application";
+import "../channels/consumer"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('turbolinks:load', () => {
+  const controller = document.body.dataset.controller;
+  const action = document.body.dataset.action;
+  console.log('controller:', controller, 'action:', action);
+
+  if (controller === 'rooms' && action === 'show') {
+    import('../channels/room_channel').then(mod => mod.init());
+  }
+  if (controller === 'kentes') {
+    import('./kente_form').then(mod => mod.init());
+  }
+});

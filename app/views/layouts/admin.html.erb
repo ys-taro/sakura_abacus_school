@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - SakuraAbacusSchool</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <header>
+    <%= render "shared/admin_header" %>
+    <% flash.each do |key, message| %>
+      <div class="alert alert-<%= key == 'alert' ? 'danger' : 'success' %> alert-dismissible fade show" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
+</html>

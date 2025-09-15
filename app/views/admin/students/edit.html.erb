@@ -1,0 +1,60 @@
+<div class="container my-4">
+  <h1 class="mb-4">塾生情報 編集</h1>
+
+  <%= form_with(model: [:admin, @student], local: true) do |f| %>
+    <div class="mb-3 row">
+      <%= f.label :last_name, "姓", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label :first_name, "名", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label :last_name_kana, "姓（フリガナ）", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :last_name_kana, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label :first_name_kana, "名（フリガナ）", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :first_name_kana, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label :rank_id, "級位", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.select :rank_id, options_from_collection_for_select(@kente_ranks, :id, :rank), { prompt: "級位を選択してください" }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label :next_kente_rank_id, "次回受験級位", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.select :next_kente_rank_id, options_from_collection_for_select(@kente_ranks, :id, :rank), { prompt: "級位を選択してください" }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <%= f.label :is_active, "有効フラグ", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10 d-flex align-items-center">
+        <%= f.check_box :is_active, class: "form-check-input me-2" %>
+        <label class="form-check-label" for="student_is_active">有効にする</label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <%= f.submit "更新", class: "btn btn-primary" %>
+      <%= link_to "キャンセル", admin_student_path(@student), class: "btn btn-secondary ms-2" %>
+    </div>
+  <% end %>
+</div>

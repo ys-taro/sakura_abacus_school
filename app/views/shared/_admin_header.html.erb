@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <div class="container">
+    <%= link_to "さくらそろばん教室(管理者)", admin_dashboards_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">     
+        <% if admin_signed_in? %>
+          <li class="nav-item">
+            <%= link_to admin_informations_path, class: 'nav-link text-light' do %>
+              <span>お知らせ</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_dashboards_path, class: 'nav-link text-light' do %>
+              <span>成績入力</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_students_path, class: 'nav-link text-light' do %>
+              <span>塾生一覧</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_master_accounts_path, class: 'nav-link text-light' do %>
+              <span>マスターアカウント一覧</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_contacts_path, class: 'nav-link text-light' do %>
+              <span>問い合わせ確認</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_rooms_path, class: 'nav-link text-light' do %>
+              <span>メッセージ</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <span>ログアウト</span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,10 @@
+<div class="container my-4">
+  <h1 class="mb-4">講師へのメッセージ</h1>
+  <div class="list-group">
+    <% @admins.each do |admin| %>
+      <%= link_to student_room_path(student_id: @student, id: admin.id), class: "list-group-item list-group-item-action" do %>
+        <%= admin.last_name %> <%= admin.first_name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

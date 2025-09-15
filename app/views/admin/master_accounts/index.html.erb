@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <h1 class="mb-4">マスターアカウント一覧</h1>
+  <div class="mb-3">
+    <%= link_to 'マスターアカウント新規登録', new_master_account_registration_path, class: "btn btn-primary" %>
+  </div>
+  <div class="list-group">
+    <% @master_accounts.each do |master_account| %>
+      <%= link_to admin_master_account_path(master_account), class: "list-group-item list-group-item-action" do %>
+        <%= master_account.email + " " + (master_account.students.first ? master_account.students.first.last_name + " " + master_account.students.first.first_name : "生徒なし") %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
