@@ -1,5 +1,5 @@
 class AddDefaultToNextKenteRankIdInStudents < ActiveRecord::Migration[6.1]
   def change
-    change_column_default :students, :next_kente_rank_id, 2
+    #change_column_default :students, :next_kente_rank_id, 2
   end
 end
