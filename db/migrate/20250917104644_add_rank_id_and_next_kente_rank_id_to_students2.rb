@@ -1,4 +1,4 @@
-class AddRankIdAndNextKenteRankIdToStudents < ActiveRecord::Migration[6.1]
+class AddRankIdAndNextKenteRankIdToStudents2 < ActiveRecord::Migration[6.1]
   def change
     #add_column :students, :rank_id, :bigint
     #add_column :students, :next_kente_rank_id, :bigint
