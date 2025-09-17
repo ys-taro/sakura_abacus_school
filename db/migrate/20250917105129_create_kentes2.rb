@@ -6,8 +6,8 @@ class CreateKentes2 < ActiveRecord::Migration[6.1]
       t.integer :division_score, default: 0, null: false
       t.integer :mitori_score, default: 0, null: false
       t.integer :total_score, default: 0, null: false
-      t.integer :kente_rank_id, null: false
-      t.integer :kente_number_id, null: false
+      t.bigint :kente_rank_id, null: false
+      t.bigint :kente_number_id, null: false
       t.timestamps null: false
     end
 
