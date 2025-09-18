@@ -1,4 +1,5 @@
 class InformationsController < ApplicationController
+  before_action :authenticate_master_account!
   def index
     @informations = Information.order(created_at: :desc).limit(20)
   end

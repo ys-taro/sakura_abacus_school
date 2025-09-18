@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_master_account!
+
   def index
     @student = Student.find(params[:student_id])    
     @admins = Admin.select(:id, :last_name, :first_name)

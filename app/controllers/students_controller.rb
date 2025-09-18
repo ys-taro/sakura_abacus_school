@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_master_account!
+
   def index    
     @students =current_master_account.students
   end
